@@ -1,0 +1,30 @@
+int doppler = 1;
+int senster = 1; // nasz senster podpiety kabelkiem do tx1
+ 
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(senster, OUTPUT);//senster bd dostawal info od dopplera
+  pinMode(5, INPUT);
+}
+
+
+void loop() {
+  doppler = digitalRead(5);
+  delay(300);
+  if (doppler == LOW) { // detekcja ruchu wysyla do arduino wart 0
+    Serial.println("zarejestrowano ruch");
+    doppler_ruch();
+    digitalWrite(senster, HIGH);
+    }
+  else // brak ruchu 
+    {
+      Serial.println("tracking...");
+    }
+  }
+
+  void doppler_ruch() {
+    if (digitalRead(senster) == HIGH) {
+      //placeholderowy if...else ktory odczytuje wartosc z tx1 i wprawia robot w ruch 
+    }
+  }
