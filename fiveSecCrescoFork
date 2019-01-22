@@ -1,0 +1,30 @@
+// HIGH = 1 czyli brak sygnału z dopplera,
+// LOW = 0 co oznacza sygnał płynący z dopplera a a zatem wykryty ruch
+
+
+int doppler = digitalRead(5); // czytam dane z digipina
+int fiveSec = 5; // deklaruje piec sekund ktore wykorzystam do pomiaru czasu
+int startTime = 0; // moment rozpoczęcia pomiaru czasu
+byte timerRunning; // jest to pstryczek, którym uruchamiam pomiar czasu przy wykryciu ruchu
+
+//
+void setup {
+serial.begin (9600);
+pinMode(5, INPUT); //pin otrzymujący dane z dopplera
+pinMode(3, OUTPUT); //pin łączący układ ARDUINO-DOPPLER z resztą maszynerii
+
+}
+void loop {
+  if (doppler == LOW) { // ustalam, że jeśli dopppler wykrywa ruch a do tej pory tego nie robił (gdyż jak później zażądam - przy każdym wykryciu ruchu  będzie odpalał timer) to zacznie mierzyć czas interakcji z człowiekiem
+        delay(5000);
+        }
+
+      }
+  if (doppler == LOW ) { // jesli po uplywie 5s nadal wykrywamy ruch inicjuje dalsze funkcje robota
+      // runMachine();
+      
+
+  }
+}
+
+//postanowilem nie kodowac wylacznika z tego wzgledu, ze naturalniejszym wydaje mi sie umieszczenie go w kodzie odpowiadajacym bezposrednio za ruch
