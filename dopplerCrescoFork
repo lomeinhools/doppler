@@ -1,0 +1,26 @@
+// dopplerFiveSec poprawiony przez cresco
+
+
+int doppler = digitalRead(5); // czytam dane z digipina
+
+void setup {
+serial.begin (9600);
+pinMode(5, INPUT); //pin otrzymujący dane z dopplera
+pinMode(3, OUTPUT); //pin łączący układ ARDUINO-DOPPLER z resztą maszynerii
+
+}
+void loop {
+  if (doppler == LOW) { //rejestruje ruch
+        delay(5000); /licze pięć sekund
+        }
+
+
+  if (doppler == LOW ) { // jesli po uplywie 5s nadal wykrywamy ruch inicjuje dalsze funkcje robota
+      // runMachine();
+
+
+  }
+}
+
+// jest to znacząco uproszczony kod, myślę, że w porównaniu z oryginałem przykład na przepaść jaka dzieli kogoś
+// z 10 latami doświadczenia w programowaniu, a początkującego programiste :D
