@@ -2,6 +2,7 @@
 
 
 int doppler = digitalRead(5); // czytam dane z digipina
+byte timerOn = 0; //ustalam sobie pstryczek do odpalenia mierzenia ruchu
 
 void setup {
 serial.begin (9600);
@@ -10,14 +11,15 @@ pinMode(3, OUTPUT); //pin łączący układ ARDUINO-DOPPLER z resztą maszynerii
 
 }
 void loop {
-  if (doppler == LOW) { //rejestruje ruch
+  if (doppler == LOW && timerOn = 0) { //rejestruje ruch
         delay(5000); /licze pięć sekund
+        timerOn = 1;
         }
 
 
-  if (doppler == LOW ) { // jesli po uplywie 5s nadal wykrywamy ruch inicjuje dalsze funkcje robota
+  if (doppler == LOW && timerOn = 1 ) { // jesli po uplywie 5s nadal wykrywamy ruch inicjuje dalsze funkcje robota
       // runMachine();
-
+      timerOn = 0;
 
   }
 }
